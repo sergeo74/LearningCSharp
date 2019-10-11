@@ -8,6 +8,8 @@ namespace Employees
         private string empName;
         private int empID;
         private float currPay;
+        private int empAge;
+        private string empSSN;
 
         //Свойства
         public string Name
@@ -25,6 +27,11 @@ namespace Employees
                 }
             }
         }
+        public int Age 
+        {
+            get => empAge;
+            set => empAge = value;            
+        }
         public int ID
         {
             get => empID; 
@@ -35,14 +42,21 @@ namespace Employees
             get { return currPay; }
             set { currPay = value; }
         }
-       
+        public string SocialSecurityNumber { get => empSSN; }
+
         //Конструкторы
         public Employee() {}
-        public Employee(string name, int id, float pay)
+        public Employee(string name, int id, float pay):
+            this(name, 0, id, pay, null)
+        { }
+        
+        public Employee(string name,int age, int id, float pay,string ssn)
         {
             Name = name;
             ID = id;
             Pay = pay;
+            Age = age;
+            empSSN = ssn;
         }
 
         //Методы
@@ -54,6 +68,7 @@ namespace Employees
         {
             Console.WriteLine("Name: {0}", empName);
             Console.WriteLine("ID: {0}", empID);
+            Console.WriteLine("Age: {0}", empAge);
             Console.WriteLine("Pay: {0}", currPay);
         }
     }
