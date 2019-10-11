@@ -33,7 +33,7 @@ namespace BasicInheritans
             maxSpeed = max;
         }
     }
-    class MiniVan : Car
+    sealed class MiniVan : Car
     {
 
     }
