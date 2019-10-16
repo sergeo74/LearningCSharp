@@ -5,11 +5,11 @@ namespace Employees
     class Employee
     {
         //Поля данных
-        private string empName;
-        private int empID;
-        private float currPay;
-        private int empAge;
-        private string empSSN;
+        protected string empName;
+        protected int empID;
+        protected float currPay;
+        protected int empAge;
+        protected string empSSN;
 
         //Свойства
         public string Name
@@ -46,16 +46,19 @@ namespace Employees
 
         //Конструкторы
         public Employee() {}
-        public Employee(string name, int id, float pay):
-            this(name, 0, id, pay, null)
-        { }
-        
-        public Employee(string name,int age, int id, float pay,string ssn)
+        public Employee(string name, int age, int id, float pay)
+
         {
             Name = name;
             ID = id;
             Pay = pay;
             Age = age;
+        }
+        
+        public Employee(string name,int age, int id, float pay,string ssn):
+            this(name, age, id, pay)
+        {
+            
             empSSN = ssn;
         }
 
