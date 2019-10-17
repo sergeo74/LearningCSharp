@@ -2,7 +2,7 @@
 
 namespace Employees
 {
-    class Employee
+    abstract class Employee
     {
         //Поля данных
         protected string empName;
@@ -63,7 +63,7 @@ namespace Employees
         }
 
         //Методы
-        public void GiveBonus( float amount)
+        public virtual void GiveBonus( float amount)
         {
             Pay += amount;
         }
