@@ -6,10 +6,33 @@ namespace SimpleExeption
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("***** Simple Exeption Example *****");
+            Console.WriteLine("***** => Creating a car and stepping on it!");
+            Car myCar = new Car("GRANTA",10);
+            myCar.CranckTunes(true);
+            try
+            {
+                for (int i = 0; i < 10; i++)
+                    myCar.Accelerate(1000);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("\n*** Error! ***");
+                Console.WriteLine("Member name: {0}", e.TargetSite); //имя члена
+                Console.WriteLine("Class defining member: {0}", e.TargetSite.DeclaringType); //class члена
+                Console.WriteLine("Member type: {0}", e.TargetSite.MemberType); //имя члена
+                Console.WriteLine("Message: {0}", e.Message); //сообщение
+                Console.WriteLine("Source: {0}", e.Source); //источник
+                Console.WriteLine("Stack: {0}", e.StackTrace);
+            }
+            Console.WriteLine("\n***** Out of exeption logic *****"); //источник
+            Console.ReadLine();
+
         }
     }
     class Car
     {
+        
         public const int MaxSpeed = 100;
         public int CurrentSpeed { get; set; } = 0;
         public string PetName { get; set; } = "";
@@ -37,11 +60,14 @@ namespace SimpleExeption
             else
             {
                 CurrentSpeed += delta;
-                if (CurrentSpeed > MaxSpeed)
+                if (CurrentSpeed >= MaxSpeed)
                 {
-                    Console.WriteLine("{0} is overheated!", PetName);
+                    //Console.WriteLine("{0} is overheated!", PetName);
                     CurrentSpeed = 0;
                     carIdDead = true;
+                    //Используем throw
+                    //Console.ReadLine();
+                    throw new Exception($"{PetName} has overheated!");
                 }
                 else
                 {
@@ -49,6 +75,7 @@ namespace SimpleExeption
                 }
             }
         }
+
     }
     class Radio
     {
