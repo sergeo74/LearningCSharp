@@ -64,6 +64,14 @@ namespace CustomInterface
         }
 
     }
+    class PointyTestClass : IPointy
+    {
+        public byte Points
+        { 
+            get => throw new NotImplementedException(); 
+        }
+    }
+
     class Program
     {
         
