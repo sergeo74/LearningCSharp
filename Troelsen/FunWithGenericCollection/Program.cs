@@ -7,7 +7,9 @@ namespace FunWithGenericCollection
     {
         static void Main(string[] args)
         {
-            UseGenericList();
+            //UseGenericList();
+            //UseGenericStack();
+           UseSortedSet();
             Console.ReadLine();
         }
         static void UseGenericList()
@@ -38,5 +40,50 @@ namespace FunWithGenericCollection
             foreach(Person p in arrPerson) Console.WriteLine(p.FirstName);
             
         }
+        static void UseGenericStack()
+        {
+            Stack < Person > stackOfPeople = new Stack<Person>();
+            stackOfPeople.Push(new Person
+            { FirstName = "Serg", LastName = "Boyar", Age = 45 });
+            stackOfPeople.Push(new Person
+            { FirstName = "Serg", LastName = "Next", Age = 45 });
+            stackOfPeople.Push(new Person
+            { FirstName = "Vova", LastName = "Next", Age = 17 });
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine("First person: {0}", stackOfPeople.Peek());
+                    Console.WriteLine("Poped off: {0}", stackOfPeople.Pop());
+                }
+                catch (InvalidOperationException ex)
+                {
+                    Console.WriteLine("\nError! {0}", ex.Message);
+                    break;
+                }
+            }
+        }
+        static void UseSortedSet()
+        {
+            SortedSet<Person> setOfPeople = new SortedSet<Person>(new SortPeopleByAge())
+            {
+                new Person { FirstName = "Serg", LastName = "Boyar", Age = 45 },
+                new Person { FirstName = "Serg", LastName = "Next", Age = 46 },
+                new Person { FirstName = "Vova", LastName = "Next", Age = 17 }
+            };
+            foreach(Person p in setOfPeople)
+            {
+                Console.WriteLine(p);
+            }
+            Console.WriteLine();
+            setOfPeople.Add(new Person("John", "Qux", 3));
+            foreach (Person p in setOfPeople)
+            {
+                Console.WriteLine(p);
+            }
+            Console.WriteLine();
+            
+        }
+
     }
 }

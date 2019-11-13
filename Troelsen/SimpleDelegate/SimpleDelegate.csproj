@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0082ED9D-AF1D-40A9-8857-1C901ACF8504}</ProjectGuid>
+    <ProjectGuid>{7B8BECCC-6B4B-4A81-AF7F-C75337EEDA27}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>FunWithGenericCollection</RootNamespace>
-    <AssemblyName>FunWithGenericCollection</AssemblyName>
+    <RootNamespace>SimpleDelegate</RootNamespace>
+    <AssemblyName>SimpleDelegate</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,10 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SortPeopleByAge.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
