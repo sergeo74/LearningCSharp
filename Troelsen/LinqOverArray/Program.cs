@@ -17,10 +17,21 @@ namespace LinqOverArray
             Console.ReadLine();
             QueryOverStringsLongHand();
             Console.ReadLine();
-
+            QueryOverlnts();
+            Console.ReadLine();
         }
-
+        
         //Вспомогательный метод
+        static void QueryOverlnts()
+        {
+            int[] number = {10, 4, 45, 3, 67, 34, 7};
+            var dataSet = number.Where(i => i < 10).Select(i => i);//from i in number where i < 10 select i;
+            ReflectOverQueryResults(dataSet);
+            foreach (var i in dataSet)
+            {
+                Console.WriteLine("Item: {0}", i);
+            }
+        }
         static void QueryOverStrings()
         {
             string[] currentVideoGames = {"Morrowind", "Uncharted 2", "Fallout 3",
@@ -32,6 +43,7 @@ namespace LinqOverArray
                                          where g.Contains(" ")
                                          orderby g
                                          select g;
+            ReflectOverQueryResults(subset);
             // Вывести результаты,
             foreach (string s in subset)
             {
@@ -46,13 +58,12 @@ namespace LinqOverArray
 
             // Построить выражение запроса для поиска
             // в массиве элементов, содержащих пробелы.
-            IEnumerable<string> subset =
-                currentVideoGames.Where(g => g.Contains(" ")).
+            var subset = currentVideoGames.Where(g => g.Contains(" ")).
                                     OrderBy(g=>g).
                                     Select(g => g);
-            
+            ReflectOverQueryResults(subset, "Extension Methods" );
             // Вывести результаты,
-            foreach (string s in subset)
+            foreach (var s in subset)
             {
                 Console.WriteLine("Item: {0}", s);
             }
@@ -82,6 +93,17 @@ namespace LinqOverArray
             }
             Console.WriteLine();
 
+        }
+
+        static void ReflectOverQueryResults(object resultSet,
+            string queryType = "Query Expressions")
+        {
+            Console.WriteLine($"***** Info about your query using {queryType} *****");
+            // Вывести тип результирующего набора.
+            Console.WriteLine("resultSet is of type: {0}", resultSet.GetType().Name);
+            // Вывести местоположение результирующего набора.
+            Console.WriteLine("resultSet location: {0}",
+                resultSet.GetType().Assembly.GetName().Name);
         }
     }
 
