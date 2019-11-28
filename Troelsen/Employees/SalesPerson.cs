@@ -1,26 +1,18 @@
-﻿using System;
-
-namespace Employees
+﻿namespace Employees
 {
-    class SalesPerson: Employee
+    internal class SalesPerson : Employee
     {
         //Количества продаж
         public int SalesNumber { get; set; }
-        #region Constructors
-        public SalesPerson() {}
-        public SalesPerson(string fullName, int age, int empID, float currPay, string ssn,
-            int numberOfSales) : base(fullName, age, empID, currPay, ssn)
-        {
-            SalesNumber = numberOfSales;
-        }
-        #endregion
-        
+
         //Бонус продавца зависит от количества продаж
-        public override sealed void GiveBonus(float amount)
+        public sealed override void GiveBonus(float amount)
         {
-            int salesBonus = 0;
+            var salesBonus = 0;
             if (SalesNumber >= 0 && SalesNumber <= 100)
+            {
                 salesBonus = 10;
+            }
             else
             {
                 if (SalesNumber >= 101 && SalesNumber <= 200)
@@ -28,15 +20,34 @@ namespace Employees
                 else
                     salesBonus = 20;
             }
-            base.GiveBonus(amount*salesBonus);
+
+            base.GiveBonus(amount * salesBonus);
         }
 
+        #region Constructors
+
+        public SalesPerson()
+        {
+        }
+
+        public SalesPerson(string fullName, int age, int empID, float currPay, string ssn,
+            int numberOfSales) : base(fullName, age, empID, currPay, ssn)
+        {
+            SalesNumber = numberOfSales;
+        }
+
+        #endregion
     }
-    sealed class PTSalesPerson : SalesPerson
+
+    internal sealed class PTSalesPerson : SalesPerson
     {
-        public PTSalesPerson() {}
+        public PTSalesPerson()
+        {
+        }
+
         public PTSalesPerson(string fullName, int age, int empID, float currPay, string ssn,
-            int numberOfSales):base(fullName, age, empID, currPay, ssn, numberOfSales)
-        {}
+            int numberOfSales) : base(fullName, age, empID, currPay, ssn, numberOfSales)
+        {
+        }
     }
 }

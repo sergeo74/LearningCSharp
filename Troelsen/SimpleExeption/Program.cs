@@ -2,20 +2,20 @@
 
 namespace SimpleExeption
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             Console.WriteLine("***** Simple Exeption Example *****");
             Console.WriteLine("***** => Creating a car and stepping on it!");
-            Car myCar = new Car("GRANTA",10);
+            var myCar = new Car("GRANTA", 10);
             myCar.CranckTunes(true);
             try
             {
-                for (int i = 0; i < 10; i++)
+                for (var i = 0; i < 10; i++)
                     myCar.Accelerate(1000);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine("\n*** Error! ***");
                 Console.WriteLine("Member name: {0}", e.TargetSite); //имя члена
@@ -25,38 +25,50 @@ namespace SimpleExeption
                 Console.WriteLine("Source: {0}", e.Source); //источник
                 Console.WriteLine("Stack: {0}", e.StackTrace);
             }
+
             Console.WriteLine("\n***** Out of exeption logic *****"); //источник
             Console.ReadLine();
-
         }
     }
-    class Car
+
+    internal class Car
     {
-        
         public const int MaxSpeed = 100;
-        public int CurrentSpeed { get; set; } = 0;
-        public string PetName { get; set; } = "";
+
         //Автомобиль не сломался?
-        bool carIdDead;
+        private bool carIdDead;
+
         //Есть радиоприёмник
-        Radio radio = new Radio();
+        private readonly Radio radio = new Radio();
+
         //Конструктры
-        public Car(){}
+        public Car()
+        {
+        }
+
         public Car(string name, int speed)
         {
             CurrentSpeed = speed;
             PetName = name;
         }
+
+        public int CurrentSpeed { get; set; }
+
+        public string PetName { get; set; } = "";
+
         //Метод делегирует запрос к Radio
         public void CranckTunes(bool state)
         {
             radio.TurnOn(state);
         }
+
         //Прибавим скорость, если не перегрелся
         public void Accelerate(int delta)
         {
             if (carIdDead)
+            {
                 Console.WriteLine("{0} is out of order...", PetName);
+            }
             else
             {
                 CurrentSpeed += delta;
@@ -69,19 +81,17 @@ namespace SimpleExeption
                     //Console.ReadLine();
                     throw new Exception($"{PetName} has overheated!");
                 }
-                else
-                {
-                    Console.WriteLine("CurrentSpeed = {0} ", CurrentSpeed);
-                }
+
+                Console.WriteLine("CurrentSpeed = {0} ", CurrentSpeed);
             }
         }
-
     }
-    class Radio
+
+    internal class Radio
     {
         public void TurnOn(bool on)
         {
-            Console.WriteLine(on ? "Jamming...":"Quiet time...");
+            Console.WriteLine(on ? "Jamming..." : "Quiet time...");
         }
     }
 }

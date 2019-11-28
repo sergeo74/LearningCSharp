@@ -2,64 +2,67 @@
 
 namespace ObjectOverrides
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             Console.WriteLine("***** Fun With System.Object *****");
-            Person person = new Person("Sergeo","Next",45);
-            Person person1 = new Person("Sergeo", "Next", 45);
-           // person1.Age = 40;
-            Console.WriteLine("person.ToString(): {0}", person.ToString());
-            Console.WriteLine("person1.ToString(): {0}", person1.ToString());
+            var person = new Person("Sergeo", "Next", 45);
+            var person1 = new Person("Sergeo", "Next", 45);
+            // person1.Age = 40;
+            Console.WriteLine("person.ToString(): {0}", person);
+            Console.WriteLine("person1.ToString(): {0}", person1);
 
             //Тестируем Equals
             Console.WriteLine("person = person1 ? :{0}", person.Equals(person1));
             //Проверяем хэш коды
-            Console.WriteLine("Same hash codes ? :{0}", person.GetHashCode()== person1.GetHashCode());
+            Console.WriteLine("Same hash codes ? :{0}", person.GetHashCode() == person1.GetHashCode());
             //Эквивалентность
-            Console.WriteLine("Poiting to same object ? :{0}", object.ReferenceEquals(person,person1));
+            Console.WriteLine("Poiting to same object ? :{0}", ReferenceEquals(person, person1));
             Console.ReadLine();
         }
     }
-    class Person 
+
+    internal class Person
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public int Age { get; set; }
-        public Person() {}
+        public Person()
+        {
+        }
+
         public Person(string fName, string lName, int age)
         {
             FirstName = fName;
             LastName = lName;
             Age = age;
         }
+
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public int Age { get; set; }
+
         public override string ToString()
         {
             return $"[First Name: {FirstName}; Last Name: {LastName}; Age: {Age}]";
         }
+
         public override bool Equals(object obj)
         {
             if (obj is Person && obj != null)
             {
                 Person temp;
-                temp = (Person)obj;
-                if (temp.FirstName == this.FirstName && temp.LastName == this.LastName &&
-                    temp.Age == this.Age)
-                {
+                temp = (Person) obj;
+                if (temp.FirstName == FirstName && temp.LastName == LastName &&
+                    temp.Age == Age)
                     return true;
-                }
-                else 
-                {
-                    return false;
-                }
+                return false;
             }
+
             return false;
         }
+
         public override int GetHashCode()
         {
-            return this.ToString().GetHashCode();
+            return ToString().GetHashCode();
         }
-
     }
 }

@@ -1,35 +1,43 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClonablePoint
 {
-    class Point : ICloneable
+    internal class Point : ICloneable
     {
-        public int X { get; set; }
-        public int Y { get; set; }
         public PointDescription desc = new PointDescription();
-        public Point() { }
+
+        public Point()
+        {
+        }
+
         public Point(int xPos, int yPos)
         {
-            X = xPos; Y = yPos;
+            X = xPos;
+            Y = yPos;
         }
-        public Point(int xPos, int yPos, string petName) : this ( xPos, yPos)
+
+        public Point(int xPos, int yPos, string petName) : this(xPos, yPos)
         {
-           desc.PetName = petName;
+            desc.PetName = petName;
         }
-        public override string ToString() 
-            => $"X = {X}; Y = {Y}; Name = {desc.PetName}; \nID = {desc.PointID}";
+
+        public int X { get; set; }
+
+        public int Y { get; set; }
+
         //{return $"X = {X}, Y = {Y}";}
-        public object  Clone()// => this.MemberwiseClone();
+        public object Clone() // => this.MemberwiseClone();
         {
-            Point clPoint = (Point)this.MemberwiseClone();
-            PointDescription newdesc = new PointDescription();
-            newdesc.PetName = this.desc.PetName;
+            var clPoint = (Point) MemberwiseClone();
+            var newdesc = new PointDescription();
+            newdesc.PetName = desc.PetName;
             clPoint.desc = newdesc;
             return clPoint;
+        }
+
+        public override string ToString()
+        {
+            return $"X = {X}; Y = {Y}; Name = {desc.PetName}; \nID = {desc.PointID}";
         }
     }
 }

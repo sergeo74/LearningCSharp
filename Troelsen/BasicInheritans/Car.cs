@@ -1,28 +1,10 @@
-﻿using System;
-
-
-namespace BasicInheritans
+﻿namespace BasicInheritans
 {
-    class Car
+    internal class Car
     {
         public readonly int maxSpeed;
         private int currSpeed;
-        public int Speed
-        {
-            get
-            {
-                return currSpeed;
-            }
 
-            set
-            {
-                currSpeed = value;
-                if (currSpeed > maxSpeed)
-                {
-                    currSpeed = maxSpeed;
-                }
-            }
-        }
         public Car()
         {
             maxSpeed = 55;
@@ -32,9 +14,20 @@ namespace BasicInheritans
         {
             maxSpeed = max;
         }
-    }
-    sealed class MiniVan : Car
-    {
 
+        public int Speed
+        {
+            get => currSpeed;
+
+            set
+            {
+                currSpeed = value;
+                if (currSpeed > maxSpeed) currSpeed = maxSpeed;
+            }
+        }
+    }
+
+    internal sealed class MiniVan : Car
+    {
     }
 }
