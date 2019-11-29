@@ -91,6 +91,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqRetValues", "LinqRetVal
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListOverCollections", "ListOverCollections\ListOverCollections.csproj", "{24C4A061-9824-4B55-B44A-92AC2A70713B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunWithLinqExpressions", "FunWithLinqExpressions\FunWithLinqExpressions.csproj", "{93325CD4-3829-486A-AA4B-2046720037EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqUsingEnumerable", "LinqUsingEnumerable\LinqUsingEnumerable.csproj", "{2267C8CF-3C57-4659-9207-1A02EF8A214B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -245,6 +249,14 @@ Global
 		{24C4A061-9824-4B55-B44A-92AC2A70713B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24C4A061-9824-4B55-B44A-92AC2A70713B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24C4A061-9824-4B55-B44A-92AC2A70713B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93325CD4-3829-486A-AA4B-2046720037EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93325CD4-3829-486A-AA4B-2046720037EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93325CD4-3829-486A-AA4B-2046720037EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93325CD4-3829-486A-AA4B-2046720037EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2267C8CF-3C57-4659-9207-1A02EF8A214B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2267C8CF-3C57-4659-9207-1A02EF8A214B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2267C8CF-3C57-4659-9207-1A02EF8A214B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2267C8CF-3C57-4659-9207-1A02EF8A214B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -287,6 +299,8 @@ Global
 		{BA3F78A6-2BFC-42C6-A3DE-7A9981CCDB5E} = {4D8755C6-2F80-4784-B9C3-553C3697EF68}
 		{66416345-34A6-4BCC-9059-7A8AD61C4155} = {4D8755C6-2F80-4784-B9C3-553C3697EF68}
 		{24C4A061-9824-4B55-B44A-92AC2A70713B} = {4D8755C6-2F80-4784-B9C3-553C3697EF68}
+		{93325CD4-3829-486A-AA4B-2046720037EE} = {4D8755C6-2F80-4784-B9C3-553C3697EF68}
+		{2267C8CF-3C57-4659-9207-1A02EF8A214B} = {4D8755C6-2F80-4784-B9C3-553C3697EF68}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {02F46350-0037-4F9B-B832-4D45F421B88E}
