@@ -36,6 +36,9 @@
     <Reference Include="CarLibrary">
       <HintPath>..\CarLibrary\bin\Debug\CarLibrary.dll</HintPath>
     </Reference>
+    <Reference Include="CarLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=94759d552a34f696">
+      <HintPath>..\CarLibrary\bin\Debug\CarLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

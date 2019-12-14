@@ -115,6 +115,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter 15. Reflection", "C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTypeViewer", "MyTypeViewer\MyTypeViewer.csproj", "{B5840E66-A0DE-4CD2-9FA9-32FF11505D83}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExternalAssemblyReflector", "ExternalAssemblyReflector\ExternalAssemblyReflector.csproj", "{E68F31BB-C6DD-46D1-89C9-50B4A2BE16A4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -305,6 +307,10 @@ Global
 		{B5840E66-A0DE-4CD2-9FA9-32FF11505D83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5840E66-A0DE-4CD2-9FA9-32FF11505D83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5840E66-A0DE-4CD2-9FA9-32FF11505D83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E68F31BB-C6DD-46D1-89C9-50B4A2BE16A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E68F31BB-C6DD-46D1-89C9-50B4A2BE16A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E68F31BB-C6DD-46D1-89C9-50B4A2BE16A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E68F31BB-C6DD-46D1-89C9-50B4A2BE16A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -356,6 +362,7 @@ Global
 		{FB60808A-5815-4184-8F80-30DBCF8A4BC4} = {8345B2E5-305C-4432-A952-4D7A1F57244C}
 		{5B8F2B89-4BE0-481A-A631-209F2814B23D} = {8345B2E5-305C-4432-A952-4D7A1F57244C}
 		{B5840E66-A0DE-4CD2-9FA9-32FF11505D83} = {AC1DA79E-1069-439D-8CA6-A5CBAAC27807}
+		{E68F31BB-C6DD-46D1-89C9-50B4A2BE16A4} = {AC1DA79E-1069-439D-8CA6-A5CBAAC27807}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {02F46350-0037-4F9B-B832-4D45F421B88E}
