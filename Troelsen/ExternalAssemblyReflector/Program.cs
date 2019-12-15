@@ -22,7 +22,7 @@ namespace ExternalAssemblyReflector
 
                 try
                 {
-                    asm= Assembly.LoadFrom(asmName);
+                    asm = Assembly.Load(asmName);
                     DisplayTypesInAsm(asm);
                 }
                 catch 
