@@ -21,8 +21,12 @@ namespace AsyncDelegate
             BinaryOp b = new BinaryOp(Add);
             IAsyncResult asyncResult = b.BeginInvoke(10, 10, null, null);
 
-            // Выполнить другую работу в первичном потоке...
-            Console.WriteLine("Doing more work in Main()!");
+            // Это сообщение продолжит выводиться до тех пор,
+            // пока не будет завершен метод Add() .
+            while (!asyncResult.AsyncWaitHandle.WaitOne(1000, true))
+            {
+                Console.WriteLine("Doing more work in Main()!");
+            }
 
             // По готовности получить результат выполнения метода Add().
             int answ = b.EndInvoke(asyncResult);
