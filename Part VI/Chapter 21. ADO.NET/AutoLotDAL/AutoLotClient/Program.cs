@@ -1,6 +1,8 @@
 ﻿using AutoLotDAL.DataOperations;
 using System;
-
+using System.Collections.Generic;
+using AutoLotDAL.Models;
+using AutoLotDAL.Bulklmport;
 namespace AutoLotClient
 {
     internal class Program
@@ -39,7 +41,8 @@ namespace AutoLotClient
             //Console.WriteLine("Press enter to continue...");
 
             //Console.ReadLine();
-            MoveCustomer();
+            //MoveCustomer();
+            DoBulkCopy();
         }
 
         public static void MoveCustomer()
@@ -62,6 +65,30 @@ namespace AutoLotClient
             dal.ProcessCreditRisk(trowEx, 2);
             Console.WriteLine("Check CreditRisk table for results");
             Console.ReadLine();
+        }
+
+        public static void DoBulkCopy()
+        {
+            Console.WriteLine("************** Do Bulk Copy **************");
+            var cars = new List<Car>
+            {
+                new Car() { Color = "Blue", Make = "Honda", PetName = "MyCar1" },
+                new Car() { Color = "Red", Make = "Volvo", PetName = "MyCar2" },
+                new Car() { Color = "White", Make = "VW", PetName = "МуСагЗ" },
+                new Car() { Color = "Yellow", Make = "Toyota", PetName = "MyCar4" }
+            };
+
+            ProcessBulkImport.ExecuteBulkImport(cars, "Inventory");
+
+            InventoryDAL dAL = new InventoryDAL();
+            var list = dAL.GetAllInventory();
+            Console.WriteLine(" ************** All Cars ************** ");
+            Console.WriteLine("CarId\tMake\tColor\tPet Name");
+            foreach (var itm in list)
+            {
+                Console.WriteLine($"{itm.CarId}\t{itm.Make}\t{itm.Color}\t{itm.PetName}");
+            }
+            Console.WriteLine();
         }
     }
 }

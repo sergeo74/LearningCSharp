@@ -137,7 +137,11 @@ namespace AutoLotDAL.Bulklmport
 
         #endregion Not usable
 
-        public List<T> Records { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public List<T> Records
+        {
+           get => throw new NotImplementedException();
+           set => throw new NotImplementedException();
+        }
 
         private int _currentIndex = -1;
 
