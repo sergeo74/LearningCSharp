@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoLotDAL", "AutoLotDAL.csproj", "{A68E5CE5-FF24-4403-A827-786716B89A66}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BB0B60D7-565B-4465-A1AC-0603AB032A8E}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoLotClient", "AutoLotClient\AutoLotClient.csproj", "{C88F204E-07D1-4E7C-8DA9-36D92ADC4B49}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A68E5CE5-FF24-4403-A827-786716B89A66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A68E5CE5-FF24-4403-A827-786716B89A66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A68E5CE5-FF24-4403-A827-786716B89A66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A68E5CE5-FF24-4403-A827-786716B89A66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C88F204E-07D1-4E7C-8DA9-36D92ADC4B49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C88F204E-07D1-4E7C-8DA9-36D92ADC4B49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C88F204E-07D1-4E7C-8DA9-36D92ADC4B49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C88F204E-07D1-4E7C-8DA9-36D92ADC4B49}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4BC52D81-41AD-4887-AB61-ADBD84263E9D}
+	EndGlobalSection
+EndGlobal
