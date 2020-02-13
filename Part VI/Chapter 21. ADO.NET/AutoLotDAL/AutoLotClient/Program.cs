@@ -1,8 +1,8 @@
-﻿using AutoLotDAL.DataOperations;
+﻿using AutoLotDAL.Bulklmport;
+using AutoLotDAL.DataOperations;
+using AutoLotDAL.Models;
 using System;
 using System.Collections.Generic;
-using AutoLotDAL.Models;
-using AutoLotDAL.Bulklmport;
 namespace AutoLotClient
 {
     internal class Program
@@ -43,6 +43,9 @@ namespace AutoLotClient
             //Console.ReadLine();
             //MoveCustomer();
             DoBulkCopy();
+            Console.ReadLine();
+
+
         }
 
         public static void MoveCustomer()

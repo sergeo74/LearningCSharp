@@ -137,11 +137,8 @@ namespace AutoLotDAL.Bulklmport
 
         #endregion Not usable
 
-        public List<T> Records
-        {
-           get => throw new NotImplementedException();
-           set => throw new NotImplementedException();
-        }
+
+        public List<T> Records { get; set; }
 
         private int _currentIndex = -1;
 
@@ -155,12 +152,16 @@ namespace AutoLotDAL.Bulklmport
         private readonly PropertyInfo[] _propertyInfos;
         private readonly Dictionary<string, int> _nameDictionary;
 
-        public MyDataReader(List<T> list)
+        public MyDataReader()
         {
             _propertyInfos = typeof(T).GetProperties();
             _nameDictionary = _propertyInfos
                 .Select((x, index) => new { x.Name, index })
                 .ToDictionary(pair => pair.Name, pair => pair.index);
+        }
+        public MyDataReader(List<T> records) : this()
+        {
+            Records = records;
         }
 
         public int FieldCount => _propertyInfos.Length;

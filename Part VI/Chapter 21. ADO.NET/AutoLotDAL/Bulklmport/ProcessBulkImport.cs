@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Data;
-using System.Threading.Tasks;
 
 namespace AutoLotDAL.Bulklmport
 {
@@ -21,7 +20,7 @@ namespace AutoLotDAL.Bulklmport
 
         private static void CloseConnection()
         {
-            if(_sqlConnection?.State != ConnectionState.Closed)
+            if (_sqlConnection?.State != ConnectionState.Closed)
             {
                 _sqlConnection.Close();
             }
@@ -30,9 +29,9 @@ namespace AutoLotDAL.Bulklmport
         public static void ExecuteBulkImport<T>(IEnumerable<T> records, string tableName)
         {
             OpenConnection();
-            using(SqlConnection connection = _sqlConnection)
+            using (var connection = _sqlConnection)
             {
-                SqlBulkCopy bulkCopy = new SqlBulkCopy(connection);
+                var bulkCopy = new SqlBulkCopy(connection);
                 bulkCopy.DestinationTableName = tableName;
                 var dataReader = new MyDataReader<T>(records.ToList());
                 try
@@ -41,7 +40,8 @@ namespace AutoLotDAL.Bulklmport
                 }
                 catch (Exception ex)
                 {
-                    throw ex;
+                    Console.WriteLine(ex.Message);
+                    throw;
                 }
                 finally
                 {
