@@ -51,13 +51,13 @@
     <Compile Include="EF\AutoLotEntities.cs" />
     <Compile Include="EF\MyDataInitializer.cs" />
     <Compile Include="Interception\ConsoleWriterlnterceptor.cs" />
-    <Compile Include="Migrations\202003171234548_Initial.cs" />
-    <Compile Include="Migrations\202003171234548_Initial.Designer.cs">
-      <DependentUpon>202003171234548_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\202004070818319_InitialCreate.cs" />
+    <Compile Include="Migrations\202004070818319_InitialCreate.Designer.cs">
+      <DependentUpon>202004070818319_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202003190728019_Final.cs" />
-    <Compile Include="Migrations\202003190728019_Final.Designer.cs">
-      <DependentUpon>202003190728019_Final.cs</DependentUpon>
+    <Compile Include="Migrations\202004070832372_Final.cs" />
+    <Compile Include="Migrations\202004070832372_Final.Designer.cs">
+      <DependentUpon>202004070832372_Final.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,19 +70,18 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003171234548_Initial.resx">
-      <DependentUpon>202003171234548_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003190728019_Final.resx">
-      <DependentUpon>202003190728019_Final.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\AutoLotDAL.Models\AutoLotDAL.Models.csproj">
       <Project>{703dd881-c5ac-48c8-8786-1c55443af07a}</Project>
       <Name>AutoLotDAL.Models</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202004070818319_InitialCreate.resx">
+      <DependentUpon>202004070818319_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004070832372_Final.resx">
+      <DependentUpon>202004070832372_Final.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -13,7 +13,7 @@ namespace AutoLotDAL.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202003190728019_Final"; }
+            get { return "202004070832372_Final"; }
         }
         
         string IMigrationMetadata.Source

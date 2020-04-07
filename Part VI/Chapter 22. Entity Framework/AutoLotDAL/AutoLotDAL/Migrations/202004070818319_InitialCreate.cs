@@ -3,7 +3,7 @@ namespace AutoLotDAL.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial : DbMigration
+    public partial class InitialCreate : DbMigration
     {
         public override void Up()
         {
@@ -11,31 +11,35 @@ namespace AutoLotDAL.Migrations
                 "dbo.CreditRisks",
                 c => new
                     {
-                        CustID = c.Int(nullable: false, identity: true),
+                        Id = c.Int(nullable: false, identity: true),
                         FirstName = c.String(maxLength: 50),
                         LastName = c.String(maxLength: 50),
+                        Timestamp = c.Binary(nullable: false, fixedLength: true, timestamp: true, storeType: "rowversion"),
                     })
-                .PrimaryKey(t => t.CustID);
+                .PrimaryKey(t => t.Id)
+                .Index(t => new { t.LastName, t.FirstName }, unique: true, name: "IDX_CreditRisk_Name");
             
             CreateTable(
                 "dbo.Customers",
                 c => new
                     {
-                        CustId = c.Int(nullable: false, identity: true),
+                        Id = c.Int(nullable: false, identity: true),
                         FirstName = c.String(maxLength: 50),
                         LastName = c.String(maxLength: 50),
+                        Timestamp = c.Binary(nullable: false, fixedLength: true, timestamp: true, storeType: "rowversion"),
                     })
-                .PrimaryKey(t => t.CustId);
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.Orders",
                 c => new
                     {
-                        OrderId = c.Int(nullable: false, identity: true),
+                        Id = c.Int(nullable: false, identity: true),
                         CustId = c.Int(nullable: false),
                         CarId = c.Int(nullable: false),
+                        Timestamp = c.Binary(nullable: false, fixedLength: true, timestamp: true, storeType: "rowversion"),
                     })
-                .PrimaryKey(t => t.OrderId)
+                .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Customers", t => t.CustId, cascadeDelete: true)
                 .ForeignKey("dbo.Inventory", t => t.CarId)
                 .Index(t => t.CustId)
@@ -45,12 +49,13 @@ namespace AutoLotDAL.Migrations
                 "dbo.Inventory",
                 c => new
                     {
-                        CarId = c.Int(nullable: false, identity: true),
+                        Id = c.Int(nullable: false, identity: true),
                         Make = c.String(maxLength: 50),
                         Color = c.String(maxLength: 50),
                         PetName = c.String(maxLength: 50),
+                        Timestamp = c.Binary(nullable: false, fixedLength: true, timestamp: true, storeType: "rowversion"),
                     })
-                .PrimaryKey(t => t.CarId);
+                .PrimaryKey(t => t.Id);
             
         }
         
@@ -60,6 +65,7 @@ namespace AutoLotDAL.Migrations
             DropForeignKey("dbo.Orders", "CustId", "dbo.Customers");
             DropIndex("dbo.Orders", new[] { "CarId" });
             DropIndex("dbo.Orders", new[] { "CustId" });
+            DropIndex("dbo.CreditRisks", "IDX_CreditRisk_Name");
             DropTable("dbo.Inventory");
             DropTable("dbo.Orders");
             DropTable("dbo.Customers");

@@ -8,6 +8,7 @@ namespace AutoLotDAL.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
+
     internal sealed class Configuration : DbMigrationsConfiguration<AutoLotDAL.EF.AutoLotEntities>
     {
         public Configuration()
@@ -64,3 +65,4 @@ namespace AutoLotDAL.Migrations
         }
     }
 }
+
